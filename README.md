@@ -1,4 +1,4 @@
-Fronten Guideline
+Frontend Guideline
 ====================
 ### Daftar Isi
 
