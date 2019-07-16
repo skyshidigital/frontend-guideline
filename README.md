@@ -41,6 +41,7 @@ Error Logging
 Handle berbeda antara loading dan empty state. Tambah notifikasi atau label yang menunjukkan kondisi saat ini.
 - Components
 	Selau mempertimbangkan pembuatan *component baru* agar dapat digunakan kembali.contoh, a <Card> yang akan tambil dibeberapa halaman, structure sama,tetapi konten berbeda, kita dapat membuat menggunakan components tersebut, components ini akan mengurangi waktu penulisan code.
+	
 ![4](https://user-images.githubusercontent.com/45573867/61206447-cb1b5600-a71c-11e9-92b5-a2682cd02cf5.png)
 
 ## Errors	
