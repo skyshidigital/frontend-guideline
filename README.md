@@ -40,7 +40,7 @@ Error Logging
 - Handling State
 Handle berbeda antara loading dan empty state. Tambah notifikasi atau label yang menunjukkan kondisi saat ini.
 - Components
-	Selau mempertimbangkan pembuatan *component baru* agar dapat digunakan kembali.contoh, a <Card> yang akan tambil dibeberapa halaman, structure sama,tetapi konten berbeda, kita dapat membuat menggunakan components tersebut, components ini akan mengurangi waktu penulisan code.
+	Selau mempertimbangkan pembuatan *component baru* agar dapat digunakan kembali.contoh : `a <Card>` yang akan ditampilkan  dibeberapa halaman, structure sama,tetapi konten berbeda, kita dapat membuat menggunakan components tersebut, components ini akan mengurangi waktu penulisan code.
 	
 ![4](https://user-images.githubusercontent.com/45573867/61206447-cb1b5600-a71c-11e9-92b5-a2682cd02cf5.png)
 
@@ -56,7 +56,7 @@ Menggunakan `getsentry` untuk real-time error reporting, harus disiapkan diawal 
 - Disable default action form
 Selalu disable action default menggunakan *event.preventDefault()* pada setiap *onSubmitForm()* function
 - Submitting form
-	Enable atau disable form submission dengan klik button atau tekan ‘enter’ berdasarkan persyaratan.
+	Enable atau disable form submission dengan klik button atau tekan `enter` berdasarkan persyaratan.
 - Pastikan form terkirim saat user menekan Enter (Kecuali permintaan khusus)
 - Pesan eror untuk setiap tampilan inputan form terletak dibawah form input.
 
@@ -66,10 +66,10 @@ Selalu disable action default menggunakan *event.preventDefault()* pada setiap *
 - Menentukan jika benar-benar digunakan untuk salah satu fungsi atau berguna bagi secara keseluruhan proyek
 
 ## Privacy Data	
-- Jangan menyimpan apa pun di samping token pada cookie
+- Jangan menyimpan banyak data di cookie, agar dapat minimalisir data yg terekspos ke browser
 
 ## Git Convention	
-- Gambar umum (bukan  assets) direktori, direktori node_modules, config file, .env, dll harus termasuk dalam file .gitignore.
+- Gambar umum (bukan assets) direktori, direktori `node_modules`, `config file`, `.env` harus termasuk dalam file `.gitignore`.
 - Harus memiliki master (seperti production), development, dan staging
 - Harus mendorong cabang sebagai fitur, contoh: feature/social-login
 - Hotfix harus menggunakan master source, tidak pernah menggunakan development sebagai source
@@ -91,40 +91,39 @@ Lebih lengkapnya dapat menggunakan referensi berikut ini:
 - Gunakan const jika variable adalah statis ( for JS )
 - Menulis proses yang sama di function, sehingga dapat digunakan kembali
 - Pastikan hapus semua  console.log() sebelum melakukan deployment ke production
-- Pastikan links support ‘open new tab’
+- Pastikan links support `open new tab`
 
 
 ## Pagination
 - GunakanURL untuk perubahan page
-Contoh : https://www.yourwebsite.com/destination?page=1, https://www.yourwebsite.com/destination?page=2, dll
-- Gunakan library ‘react-paginate’ untuk membantu pembuatan pagination (jika masih layak)
-- Gunakan loading (jika perlu) ketika mengubah halaman (menggunakan 
-- Use loading ( if necessary ) when changing page ( using prop ‘isLoading’ untuk trigger loading animasi) 
+Contoh : https://www.yourwebsite.com/destination?page=1, https://www.yourwebsite.com/destination?page=2
+- Gunakan library `react-paginate` untuk membantu pembuatan pagination (jika masih layak)
+- Gunakan loading (jika perlu) ketika mengubah halaman (menggunakan prop `isLoading` untuk trigger loading animasi)
 - Pastikan tidak reset data pada reduk ketika mengubah halaman untuk menghindari menampilkan data kosong.
 
 ## API
-- Pastikan mengambil data dari API sebelum memberikan component ( untuk SSR ) menggunakan getInitialProps()
+- Pastikan mengambil data dari API sebelum memberikan component ( untuk SSR ) menggunakan `getInitialProps()`
 - Cara maintenance mode halaman 
-- Ketika akses API dan tidak menerima balasan ( API Offline ) 
-- API maintenance mode hidup  (jika tersedia) untuk kasus ini backend akan mengembalikan status mode maintenance  
+	- Ketika akses API dan tidak menerima balasan ( API Offline ) 
+	- API maintenance mode hidup  (jika tersedia) untuk kasus ini backend akan mengembalikan status mode maintenance  
 - Menampilkan pesan toast ketika user tidak mempunyai koneksi internet
-- Mendapat balasan status dari axios/apisauce untuk eror timeout, network error, dll. Setiap gagal memanggil API selalu mendapat balasan - field pesan dalam merespon data, membuat pesan dan ditampilkan.
+	- Mendapat balasan status dari axios/apisauce untuk eror timeout, network error. Setiap gagal memanggil API selalu mendapat pesan error, membuat pesan dan ditampilkan.
 
 ## Redux
-- Gunakan ‘isLoading’ ( boolean ) props untuk trigger aksi loading Set ‘isLoading’ untuk ‘true’ ketika melakukan permintaan, set ‘isLoading’ untuk ‘false’ ketika aksi sukses atau gagal.
-- Gunakan ‘isSuccess’ ( boolean ) props untuk menemukan data yang berhasil diambil atau tidaknya, Set ‘isSuccess’ untuk ‘true’ ketika aksi sukses dan  set ‘isFetched’ untuk ‘false’ ketika aksi gagal.
-- Gunakan ‘data’ (object) props untuk untuk menyimpan semua data dari API 
-Gunakan ‘errorMsg’ (object/string) props untuk penyimpanan pesan eror dari API
+- Gunakan `isLoading` ( boolean ) props untuk trigger aksi loading Set `isLoading` untuk `true` ketika melakukan permintaan, set `isLoading` untuk `false` ketika aksi sukses atau gagal.
+- Gunakan `isSuccess` ( boolean ) props untuk menemukan data yang berhasil diambil atau tidaknya, Set `isSuccess` untuk `true` ketika aksi sukses dan  set `isFetched` untuk `false` ketika aksi gagal.
+- Gunakan `data` (object) props untuk untuk menyimpan semua data dari API 
+Gunakan `errorMsg` (object/string) props untuk penyimpanan pesan eror dari API
 
 ## Server Side Rendering	
 Server-side rendering (SSR) Memungkinkan google mesin untuk indeks halaman, React js tanpa SSR hanya akan menampilkan <head> tag dan tidak ada didalam <body> tag di view page-source dan google tidak bisa indeks halaman karena menunjukkan tidak ada apapun di dalam server.
-Bagaimana cara cek SSR :
-- Render aplikasi, kemudian pada browser, buka tampilan page-source, jika semua elemen dapat dilihat di rendered app juka akan menampilkan code dalam tampilan page-source maka itu sudah SSR.
-- Coba menggunakan console.log() difungsi utama (e.g inside getInitialProps() function), log mencatat text atau sesuatu, jika tidak muncul pada  browser console maka tidak SSR, itu akan muncul pada command line.
+Cara cek SSR :
+- Render aplikasi, kemudian pada browser buka tampilan page-source, jika semua elemen dapat dilihat di rendered app juka akan menampilkan kode dalam tampilan page-source, maka itu sudah SSR.
+- Coba menggunakan console.log() difungsi utama (contoh getInitialProps() function), log mencatat text atau sesuatu, jika tidak muncul pada  browser console maka tidak SSR, itu akan muncul pada command line.
 - Render aplikasi, kemudian turn off browser  javascript dan reload halaman, jika tidak menampilkan apapun,maka itu bukan SSR. Anda juga dapat memeriksa dengan menelusuri aplikasi.
 
 ## Boilerplate
-Cek boilerplate , ini adalah template pemula untuk memulai proyek baru, kita menggunakan Nextjs untuk memungkinkan server-side rendering untuk proyek kami.
+Cek boilerplate , ini adalah template pemula untuk memulai proyek baru, kita menggunakan *Nextjs untuk memungkinkan server-side rendering untuk proyek kami.
 
 ### Starting Project	
 - Mengkloning repo.
@@ -136,18 +135,18 @@ Cek boilerplate , ini adalah template pemula untuk memulai proyek baru, kita men
 ### Pages and URLs	
 ![5](https://user-images.githubusercontent.com/45573867/61209453-fb1a2780-a723-11e9-9747-7fd9eeed53f4.png)
 
-Halaman pada pages directory, nextjs akan otomatis rendernama setiap file pages directory sebagai url.Contoh,jika ada file nama  ‘pages/about.js’, ketika  anda menelusuri {{base_url}}/about, nextjs akan otomatis render ‘pages/about.js’ secara default,atau anda akan konfigurasi semua router url pada file server.js. bacalah Nextjs documentation.
+Halaman pada pages directory, nextjs akan otomatis render nama setiap file pages directory sebagai url. Contoh : jika ada file nama  `pages/about.js`, ketika  anda menelusuri {{base_url}}/about, nextjs akan otomatis render `pages/about.js` secara default,atau anda akan konfigurasi semua router url pada file `server.js.` bacalah *Nextjs* documentation.
 
 ### Static Files	
 ![6](https://user-images.githubusercontent.com/45573867/61209456-fe151800-a723-11e9-9c7e-329b444e7cad.png)
 
-Semua file static ( compiled css / js, image file, dll ) di directory static.
+Semua file static ( compiled css / js, image file ) di direktori static.
 
 ### Playground
 ![7](https://user-images.githubusercontent.com/45573867/61209460-00777200-a724-11e9-932b-99a3c3449868.png)
 
 Keajaiban dimulai dari direktori src. Berikut adalah struktur direktori src :
-- /src/components Pure React Components
+```- /src/components Pure React Components
 - /src/config App Config
 - /src/containers React Redux Components
 - /src/layout Predefined Layout
@@ -155,8 +154,8 @@ Keajaiban dimulai dari direktori src. Berikut adalah struktur direktori src :
 - /src/sagas Redux Side Effects (Redux-Saga)
 - /src/services Services (APIs, etc)
 - /src/utils Utils Helpers
-- /src/validations Validate.js Constraints
-
+- /src/validations Validate.js Constraints 
+``` 
 ## URL SEO Friendly
 Pedoman Dalam Penanganan URL SEO Friendly untuk Frontend
 - URL hanya boleh mengandung ID yang pendek apabila memungkinkan hapus ID 
