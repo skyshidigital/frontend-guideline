@@ -157,8 +157,6 @@ Keajaiban dimulai dari direktori src. Berikut adalah struktur direktori src :
 - /src/utils Utils Helpers
 - /src/validations Validate.js Constraints
 
-LInk untuk training Trello (dapat diakses menggunakan developer@skyshi.com)
-
 ## URL SEO Friendly
 Pedoman Dalam Penanganan URL SEO Friendly untuk Frontend
 - URL hanya boleh mengandung ID yang pendek apabila memungkinkan hapus ID 
